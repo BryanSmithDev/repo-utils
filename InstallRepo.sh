@@ -1,6 +1,7 @@
 ﻿#!/bin/bash
 eval BINDIR="~/bin"
 eval REPODIR="~/bin/repo-utils"
+eval BASHRC="~/.bashrc"
 
 echo "===================================================="
 echo "              Installing/Updating Repo           "
@@ -48,5 +49,6 @@ fi
 curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo-utils/repo
 chmod -R a+x "$BINDIR"
 chmod -R a+x "$REPODIR"
+source "$BASHRC"
 echo "===================================================="
 echo "Done"
