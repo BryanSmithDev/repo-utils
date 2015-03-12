@@ -34,7 +34,7 @@ if [ ! -d "$REPODIR" ]; then
     cd "$REPODIR"
 else
     cd "$REPODIR"
-    git pull origin/master
+    git pull origin master
 fi
 
 PATH=$REPODIR:$PATH
