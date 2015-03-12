@@ -2,6 +2,7 @@
 eval BINDIR="~/bin"
 eval REPODIR="~/bin/repo-utils"
 eval BASHRC="~/.bashrc"
+eval PUSHBULLETCONFIG="~/.config/pushbullet"
 
 echo "===================================================="
 echo "              Installing/Updating Repo           "
@@ -48,8 +49,18 @@ else
     echo "- $REPODIR was already in PATH. No need to add it again."
 fi
 
-echo "- Downloading Repo script from Google."
-curl -silent https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo-utils/repo
+echo "- Downloading most recent Repo script from Google."
+curl -silent https://storage.googleapis.com/git-repo-downloads/repo > $REPODIR/repo
+
+echo "- Downloading most recent Pushbullet script."
+curl -silent https://raw.githubusercontent.com/Red5d/pushbullet-bash/master/pushbullet > $REPODIR/pushbullet
+if [ ! -e "$PUSHBULLETCONFIG" ]; then
+    echo "- No Pushbullet API key configured. Add it to $PUSHBULLETCONFIG."
+    touch "$PUSHBULLETCONFIG"
+    echo "API_KEY=" > $PUSHBULLETCONFIG
+else
+    echo "- Pushbullet API key already configured."
+fi
 
 echo "- Setting script permissions."
 chmod -R a+x "$BINDIR"
