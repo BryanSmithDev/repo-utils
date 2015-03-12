@@ -30,11 +30,13 @@ cd "$BINDIR"
 echo "- Checking if $REPODIR directory exists..."
 if [ ! -d "$REPODIR" ]; then
     echo "- The $REPODIR directory did not exist. Creating.."
-    git clone  https://github.com/BryanSmithDev/repo-utils.git
+    git clone  https://github.com/BryanSmithDev/repo-utils.git >> /dev/null
     cd "$REPODIR"
 else
     cd "$REPODIR"
-    git pull origin master
+    echo "- The $REPODIR directory exists. Updating tools if necessary.."
+    git stash >> /dev/null
+    git pull origin master >> /dev/null
 fi
 
 PATH=$REPODIR:$PATH
