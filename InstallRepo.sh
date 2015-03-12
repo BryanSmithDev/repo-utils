@@ -55,7 +55,6 @@ curl -silent https://storage.googleapis.com/git-repo-downloads/repo > $REPODIR/r
 
 echo "- Downloading most recent Pushbullet script."
 curl -silent https://raw.githubusercontent.com/Red5d/pushbullet-bash/master/pushbullet > $REPODIR/pushbullet
-tail -n +22 $REPODIR/pushbullet > $REPODIR/pushbullet
 if [ ! -e "$PUSHBULLETCONFIG" ]; then
     echo "- No Pushbullet API key configured. Add it to $PUSHBULLETCONFIG."
     touch "$PUSHBULLETCONFIG"
