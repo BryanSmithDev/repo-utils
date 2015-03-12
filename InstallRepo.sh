@@ -37,6 +37,7 @@ else
     cd "$REPODIR"
     echo "- The $REPODIR directory exists. Updating tools if necessary.."
     git stash >> /dev/null
+    git reset --hard
     git pull origin master >> /dev/null
 fi
 
