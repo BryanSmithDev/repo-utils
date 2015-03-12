@@ -2,6 +2,7 @@
 eval BINDIR="~/bin"
 eval REPODIR="~/bin/repo-utils"
 eval BASHRC="~/.bashrc"
+eval PUSHBULLETCONFIGFD="~/.config"
 eval PUSHBULLETCONFIG="~/.config/pushbullet"
 
 echo "===================================================="
@@ -59,6 +60,7 @@ sed '1,/^\r\{0,1\}$/d' $REPODIR/pushbullet > tmpPushBullet
 mv tmpPushBullet pushbullet
 if [ ! -e "$PUSHBULLETCONFIG" ]; then
     echo "- No Pushbullet API key configured. Add it to $PUSHBULLETCONFIG."
+    mkdir "$PUSHBULLETCONFIGFD"
     touch "$PUSHBULLETCONFIG"
     echo "API_KEY=" > $PUSHBULLETCONFIG
     sudo ln -s /home/pi/bin/repo-utils/pushbullet /usr/bin/pushbullet
