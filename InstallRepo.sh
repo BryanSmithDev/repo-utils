@@ -61,6 +61,9 @@ if [ ! -e "$PUSHBULLETCONFIG" ]; then
     echo "- No Pushbullet API key configured. Add it to $PUSHBULLETCONFIG."
     touch "$PUSHBULLETCONFIG"
     echo "API_KEY=" > $PUSHBULLETCONFIG
+    sudo ln -s /home/pi/bin/repo-utils/pushbullet /usr/bin/pushbullet
+    sudo mkdir /root/.config
+    sudo ln -s /home/pi/.config/pushbullet /root/.config/pushbullet
 else
     echo "- Pushbullet API key already configured."
 fi
