@@ -46,9 +46,15 @@ else
     echo "- $REPODIR was already in PATH. No need to add it again."
 fi
 
-curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo-utils/repo
+echo "- Downloading Repo script from Google."
+curl -silent https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo-utils/repo
+
+echo "- Setting script permissions."
 chmod -R a+x "$BINDIR"
 chmod -R a+x "$REPODIR"
+
+echo "- Reloading Bash Shell"
 source "$BASHRC"
+
 echo "===================================================="
 echo "Done"
